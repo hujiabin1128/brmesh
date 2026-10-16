@@ -75,22 +75,13 @@ a { color: var(--brand); }
   text-decoration: none;
 }
 
-.logo-mark {
-  width: 30px; height: 30px;
+.logo img {
+  width: 32px;
+  height: 32px;
+  display: block;
   border-radius: 9px;
-  background: linear-gradient(135deg, var(--brand), var(--brand-2));
-  box-shadow: 0 4px 12px rgba(79,70,229,.35);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: contain;
   flex: none;
-}
-.logo-mark::after {
-  content: "";
-  width: 11px; height: 11px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 10px rgba(255,255,255,.9);
 }
 
 .site-header nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
