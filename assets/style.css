@@ -416,6 +416,9 @@ footer nav a:hover { color: var(--brand); }
 /* ---------------- WeChat in-app browser guide ---------------- */
 /* Only rendered when the page is opened inside WeChat (see assets/wechat.js) */
 
+/* keeps the footer clear of the fixed bottom bar */
+.wx-env { padding-bottom: 58px; }
+
 .wx-mask {
   position: fixed;
   inset: 0;
@@ -430,31 +433,31 @@ footer nav a:hover { color: var(--brand); }
 }
 .wx-mask.is-open { display: flex; }
 
-/* arrow pointing at the "..." menu */
+/* arrow pointing at the "..." menu, top right */
 .wx-arrow {
   position: absolute;
-  top: 14px;
-  right: 18px;
+  top: 12px;
+  right: 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, .5);
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .55);
   animation: wx-nudge 1.6s ease-in-out infinite;
 }
-.wx-arrow b { font-size: 20px; line-height: 1; }
+.wx-arrow svg { transform: rotate(90deg); }   /* points up towards the menu */
 @keyframes wx-nudge {
-  0%, 100% { transform: translateX(0); }
-  50%      { transform: translateX(-6px); }
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
 }
 
 .wx-box {
   position: relative;
   width: 100%;
-  max-width: 420px;
-  padding: 26px 22px 18px;
+  max-width: 400px;
+  padding: 26px 24px 16px;
   border-radius: 22px;
   background: #fff;
   box-shadow: 0 20px 50px rgba(0, 0, 0, .3);
@@ -467,42 +470,13 @@ footer nav a:hover { color: var(--brand); }
 }
 
 .wx-box h3 { font-size: 19px; margin: 0 0 10px; }
-.wx-box p  { font-size: 15px; color: var(--muted); margin: 0 0 16px; }
+.wx-box p  { font-size: 15px; color: var(--muted); margin: 0 0 18px; }
 .wx-box p b { color: var(--ink); }
 
-/* the URL to copy */
-.wx-urlwrap {
-  margin: 0 0 12px;
-  padding: 10px;
-  border-radius: 12px;
-  background: #f3f5f9;
-  border: 1px solid #e5e9f0;
-}
-.wx-url {
-  width: 100%;
-  border: 0;
-  background: none;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 13px;
-  color: var(--ink);
-  text-align: center;
-  outline: none;
-  -webkit-user-select: all;
-  user-select: all;
-}
-
-.wx-hint {
-  margin: 0 0 14px !important;
-  font-size: 14px;
-  color: var(--muted) !important;
-}
-.wx-hint.is-ok     { color: #059669 !important; font-weight: 600; }
-.wx-hint.is-manual { color: #b45309 !important; }
-
-.wx-copy {
+.wx-close {
   display: block;
   width: 100%;
-  padding: 14px;
+  padding: 13px;
   border: 0;
   border-radius: 14px;
   background: linear-gradient(135deg, var(--brand), var(--brand-2));
@@ -512,18 +486,7 @@ footer nav a:hover { color: var(--brand); }
   font-family: inherit;
   cursor: pointer;
 }
-.wx-copy:active { filter: brightness(.94); }
-
-.wx-close {
-  margin-top: 12px;
-  padding: 6px 4px;
-  border: 0;
-  background: none;
-  color: var(--faint);
-  font-size: 14px;
-  font-family: inherit;
-  cursor: pointer;
-}
+.wx-close:active { filter: brightness(.94); }
 
 /* persistent bottom bar */
 .wx-bar {
@@ -536,10 +499,11 @@ footer nav a:hover { color: var(--brand); }
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 12px 18px;
+  padding: 11px 16px;
   background: #0b1220;
   color: rgba(255, 255, 255, .88);
-  font-size: 14px;
+  font-size: 13.5px;
+  line-height: 1.45;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, .18);
 }
 .wx-bar b { color: #fff; }
